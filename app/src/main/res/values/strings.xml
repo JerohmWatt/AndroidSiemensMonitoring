@@ -5,7 +5,10 @@
     <string name="pwd">Mot de passe</string>
     <string name="main_creercompte">Pas de compte ? Cliquez ici</string>
     <string name="main_connexion">Connexion</string>
+    <string name="sinscrire">S\'inscrire</string>
     <string name="createAcc_inscr">Inscription</string>
     <string name="createAcc_prenom">Prénom</string>
     <string name="createAcc_nom">Nom</string>
+    <string name="home">Accueil</string>
+    <string name="connectedAs">Vous êtes connectés en tant que : </string>
 </resources>

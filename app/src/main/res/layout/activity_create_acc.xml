@@ -61,5 +61,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onCreateAccClickManager"
-        android:text="@string/main_connexion" />
+        android:text="@string/sinscrire" />
 </LinearLayout>

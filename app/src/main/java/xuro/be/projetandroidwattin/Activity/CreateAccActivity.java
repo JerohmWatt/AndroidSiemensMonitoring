@@ -2,7 +2,6 @@ package xuro.be.projetandroidwattin.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -46,7 +45,7 @@ public class CreateAccActivity extends Activity {
                 userDB.openForWrite();
                 userDB.insertUser(user1);
                 userDB.Close();
-                Intent intent = new Intent(this,MainActivity.class);
+                Intent intent = new Intent(this,LoginActivity.class);
                 startActivity(intent);
                 break;
         }

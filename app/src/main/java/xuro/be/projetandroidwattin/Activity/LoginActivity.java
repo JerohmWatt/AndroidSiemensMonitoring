@@ -3,7 +3,6 @@ package xuro.be.projetandroidwattin.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -13,13 +12,14 @@ import java.util.ArrayList;
 
 import xuro.be.projetandroidwattin.BDD.User;
 import xuro.be.projetandroidwattin.BDD.UserAccessDB;
+import xuro.be.projetandroidwattin.Models.SessionManagement;
 import xuro.be.projetandroidwattin.R;
 
-public class MainActivity extends Activity {
+public class LoginActivity extends Activity {
 
     EditText et_main_mail;
     EditText et_main_pwd;
-
+    SessionManagement session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
         Log.i("Mon projet","méthode oncreate");
         et_main_mail = (EditText)findViewById(R.id.et_main_mail);
         et_main_pwd = (EditText)findViewById(R.id.et_main_pwd);
+        session = new SessionManagement(getApplicationContext());
     }
 
     public void onMainClickManager(View v) {
@@ -48,12 +49,18 @@ public class MainActivity extends Activity {
                 String mail = et_main_mail.getText().toString();
                 String pwd = et_main_pwd.getText().toString();
                 for (User user : listUsers){
-                    if (user.getEmail().equals(mail) && user.getPassword().equals(pwd)){
-                        Toast.makeText(this,"ok il existe",Toast.LENGTH_LONG).show();}
-            }
+                    //les logs sont bons
+                    if (user.getEmail().equals(mail) && user.getPassword().equals(pwd)) {
+                        Log.v("sessionmanager", "login act" + mail);
+                        session.createLoginSession(mail);
+                        Intent intent2 = new Intent(this, UserHome.class);
+                        startActivity(intent2);
+                        break; }
+                    }
+                Log.v("sessionmanager","wtf");
+                Toast.makeText(this,"Adresse email ou mot de passe incorrect",Toast.LENGTH_LONG).show();
 
                 break;
-
         }
     }
 
