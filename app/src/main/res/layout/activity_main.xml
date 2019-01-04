@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/lightBlue">
+
+    <ImageView
+        android:id="@+id/ic_account_box_black_24dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_account_box_black_24dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="@string/main_login"
+        android:textSize="30dp" />
+
+
+    <EditText
+        android:id="@+id/et_main_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/mail"
+        />
+
+    <EditText
+        android:id="@+id/et_main_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword"
+        android:hint="@string/pwd"
+        />
+
+    <Button
+        android:id="@+id/bt_main_inscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMainClickManager"
+        android:text="@string/main_creercompte" />
+    <Button
+        android:id="@+id/bt_main_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onMainClickManager"
+        android:text="@string/main_connexion" />
+</LinearLayout>
