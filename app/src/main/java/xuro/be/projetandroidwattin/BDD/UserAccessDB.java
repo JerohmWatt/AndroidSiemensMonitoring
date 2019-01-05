@@ -3,6 +3,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -100,6 +101,20 @@ public class UserAccessDB {
         }
         c.close();
         return tabUser;
+    }
+
+    public int getRights(String mail){
+        Log.i("rightss",mail);
+       Cursor c = db.query(TABLE_USER, new String[] {
+                       COL_ID, COL_LASTNAME, COL_FIRSTNAME, COL_PASSWORD, COL_EMAIL, COL_RIGHTS },
+                COL_EMAIL + " LIKE \"" + mail + "\"",
+                null, null, null, COL_RIGHTS);
+       c.moveToFirst();
+        Log.i("rightss","number of lines " + c.getCount());
+       int r = c.getInt(NUM_COL_RIGHTS);
+        return r;
+
+
     }
 
 }

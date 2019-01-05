@@ -42,26 +42,48 @@ public class LoginActivity extends Activity {
                 break;
 
             case R.id.bt_main_login:
-                //fonction qui retourne bool en cas d'exist ?
-                UserAccessDB userDB = new UserAccessDB(this);
-                userDB.openForWrite();
-                ArrayList<User> listUsers = userDB.getAllUsers();
-                String mail = et_main_mail.getText().toString();
-                String pwd = et_main_pwd.getText().toString();
-                for (User user : listUsers){
-                    //les logs sont bons
-                    if (user.getEmail().equals(mail) && user.getPassword().equals(pwd)) {
-                        Log.v("sessionmanager", "login act" + mail);
-                        session.createLoginSession(mail);
-                        Intent intent2 = new Intent(this, UserHome.class);
-                        startActivity(intent2);
-                        break; }
+                if(isUser(et_main_mail.getText().toString(),et_main_pwd.getText().toString())) {
+                    int rights = defineRights(et_main_mail.getText().toString());
+                    session.createLoginSession(et_main_mail.getText().toString());
+                    if (rights == 1 || rights == 2){
+                    Intent intent2 = new Intent(this, UserHome.class);
+                    startActivity(intent2);}
+                    else if (rights == 3){
+                        Intent intent3 = new Intent(this, AdminHome.class);
+                        startActivity(intent3);
                     }
-                Log.v("sessionmanager","wtf");
-                Toast.makeText(this,"Adresse email ou mot de passe incorrect",Toast.LENGTH_LONG).show();
+
+
+                    break;
+                }
+                else{
+                    Toast.makeText(this,"Adresse email ou mot de passe incorrect",Toast.LENGTH_LONG).show();
+                }
+
 
                 break;
         }
+    }
+
+    public boolean isUser(String mail, String pwd){
+        UserAccessDB userDB = new UserAccessDB(this);
+        userDB.openForWrite();
+        ArrayList<User> listUsers = userDB.getAllUsers();
+        for (User user : listUsers) {
+            if (user.getEmail().equals(mail) && user.getPassword().equals(pwd)) {
+                return true;
+            }
+            }
+        return false;
+    }
+
+    //cette methode appel la db et fait un select sur le mail, pour retourner un int des droits
+    public int defineRights(String mail){
+        UserAccessDB userDB = new UserAccessDB(this);
+        userDB.openForRead();
+        int i = userDB.getRights(mail);
+        userDB.Close();
+        return i;
     }
 
     @Override

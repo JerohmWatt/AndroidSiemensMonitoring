@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.CreateAccActivity" />
-        <activity android:name=".Activity.UserHome"></activity>
+        <activity android:name=".Activity.UserHome" />
+        <activity android:name=".Activity.AdminHome"></activity>
     </application>
 
 </manifest>
