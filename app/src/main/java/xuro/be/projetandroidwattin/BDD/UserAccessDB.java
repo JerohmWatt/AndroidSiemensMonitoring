@@ -127,4 +127,13 @@ public class UserAccessDB {
         return db.update(TABLE_USER, content, COL_ID + " = " + i, null);
     }
 
+    public void updatePwd(int i, User u){
+        ContentValues content = new ContentValues();
+        content.put(COL_LASTNAME,u.getLastname());
+        content.put(COL_FIRSTNAME,u.getFirstname());
+        content.put(COL_PASSWORD,u.getPassword());
+        content.put(COL_EMAIL,u.getEmail());
+        content.put(COL_RIGHTS,u.getRights());
+        db.update(TABLE_USER, content, COL_ID + " = " + i, null);
+    }
 }

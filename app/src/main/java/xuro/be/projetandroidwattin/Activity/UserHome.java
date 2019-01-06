@@ -27,9 +27,4 @@ public class UserHome extends Activity {
         tv_userhome_loggedAs = (TextView)findViewById(R.id.tv_userhome_loggedAs);
         tv_userhome_loggedAs.setText(getString(R.string.connectedAs) + mail);
     }
-
-    public void loggedAs(){
-
-
-    }
 }

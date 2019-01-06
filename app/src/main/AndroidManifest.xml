@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Material">
+        android:theme="@style/AppTheme">
         <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +19,8 @@
         <activity android:name=".Activity.CreateAccActivity" />
         <activity android:name=".Activity.UserHome" />
         <activity android:name=".Activity.AdminHome" />
-        <activity android:name=".Activity.EditUsers"></activity>
+        <activity android:name=".Activity.EditUsers" />
+        <activity android:name=".Activity.EditSUpwd"></activity>
     </application>
 
 </manifest>

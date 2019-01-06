@@ -1,45 +1,25 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="@color/adminRed">
+    tools:context=".Activity.AdminHome">
 
-    <ImageView
-        android:id="@+id/ic_account_box_black_24dp"
-        android:layout_width="97dp"
-        android:layout_height="99dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_home_black_24dp" />
+    <include layout="@layout/content_admin_home" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginBottom="20dp"
-        android:baselineAligned="false"
-        android:text="@string/home"
-        android:textSize="30dp" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_adminhome_logout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:onClick="onAdminHomeClickManager"
+        android:src="@drawable/ic_power_settings_new_black_24dp"
+        app:backgroundTint="@color/Black"
+        app:fabCustomSize="40dp">
 
-    <TextView
-        android:id="@+id/tv_adminhome_loggedAs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginBottom="20dp"
-        android:baselineAligned="false"
-        android:text=""
-        android:textSize="15dp" />
+    </android.support.design.widget.FloatingActionButton>
 
-    <Button
-        android:id="@+id/bt_adminhome_editusers"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/editusers"
-        android:onClick="onMainClickManager"/>
-
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

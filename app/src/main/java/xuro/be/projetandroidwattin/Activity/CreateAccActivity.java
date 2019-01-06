@@ -13,34 +13,31 @@ import xuro.be.projetandroidwattin.R;
 
 public class CreateAccActivity extends Activity {
 
-    EditText et_creacc_lastname;
-    EditText et_creacc_firstname;
-    EditText et_creacc_mail;
-    EditText et_creacc_password;
+    private EditText et_creacc_lastname;
+    private EditText et_creacc_firstname;
+    private EditText et_creacc_mail;
+    private EditText et_creacc_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_acc);
 
-        et_creacc_lastname = (EditText)findViewById(R.id.et_creacc_lastname);
-        et_creacc_firstname = (EditText)findViewById(R.id.et_creacc_firstname);
-        et_creacc_mail = (EditText)findViewById(R.id.et_creacc_mail);
-        et_creacc_password = (EditText)findViewById(R.id.et_creacc_password);
+        et_creacc_lastname = findViewById(R.id.et_creacc_lastname);
+        et_creacc_firstname = findViewById(R.id.et_creacc_firstname);
+        et_creacc_mail = findViewById(R.id.et_creacc_mail);
+        et_creacc_password = findViewById(R.id.et_creacc_password);
     }
 
     public void onCreateAccClickManager(View v) {
-// Récupérer la vue et accéder au bouton
+
         switch (v.getId()) {
             case R.id.bt_creacc_inscr:
-                String str = et_creacc_lastname.getText().toString() + "#" + et_creacc_firstname.getText().toString() + "#" + et_creacc_mail.getText().toString() + "#";
-                Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
-                //création de l'utilisateur avec récup des données, à faire > vérification de forme
                 User user1 = new User(et_creacc_lastname.getText().toString(),
-                        et_creacc_firstname.getText().toString(),
-                        et_creacc_mail.getText().toString(),
-                        et_creacc_password.getText().toString(),
-                        1); //1 car utilisateur "lambda"
+                                    et_creacc_firstname.getText().toString(),
+                                    et_creacc_mail.getText().toString(),
+                                    et_creacc_password.getText().toString(),
+                                    1);
                 UserAccessDB userDB = new UserAccessDB(this);
                 userDB.openForWrite();
                 userDB.insertUser(user1);

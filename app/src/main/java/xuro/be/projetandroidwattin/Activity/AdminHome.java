@@ -2,7 +2,6 @@ package xuro.be.projetandroidwattin.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,35 +12,40 @@ import xuro.be.projetandroidwattin.R;
 
 public class AdminHome extends Activity {
 
-    TextView tv_adminhome_loggedAs;
-    SessionManagement session;
+    private TextView tv_adminhome_loggedAs;
+    private SessionManagement session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
 
         session = new SessionManagement(getApplicationContext());
 
         String mail = session.getUserEmail();
-        Log.v("sessionmanager", "userhome" + " " + mail);
-
-        tv_adminhome_loggedAs = (TextView) findViewById(R.id.tv_adminhome_loggedAs);
-        tv_adminhome_loggedAs.setText(getString(R.string.connectedAs) + mail);
+        String loggedAs = getString(R.string.connectedAs) + mail;
+        tv_adminhome_loggedAs = findViewById(R.id.tv_adminhome_loggedAs);
+        tv_adminhome_loggedAs.setText(loggedAs);
     }
 
-    public void onMainClickManager(View v) {
-        //récup la vue et accès au bouton
+    public void onAdminHomeClickManager(View v) {
 
         switch (v.getId()) {
             case R.id.bt_adminhome_editusers:
-                Log.i("rightss","ouiouioui");
-                Intent intent = new Intent(this,EditUsers.class);
+                Intent intent = new Intent(getApplicationContext(),EditUsers.class);
                 startActivity(intent);
                     break;
 
+            case R.id.fab_adminhome_logout:
+                session.logoutUser();
+                break;
+
+            case R.id.bt_adminhome_editpwd:
+                Intent intent2 = new Intent(getApplicationContext(),EditSUpwd.class);
+                startActivity(intent2);
+                break;
             default:
-                Log.i("rightss","non");
                     break;
 
 

@@ -23,48 +23,53 @@ public class LoginActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //appel unique à la création de l'acti
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("Mon projet","méthode oncreate");
         et_main_mail = findViewById(R.id.et_main_mail);
         et_main_pwd = findViewById(R.id.et_main_pwd);
         session = new SessionManagement(getApplicationContext());
     }
 
     public void onMainClickManager(View v) {
-        //récup la vue et accès au bouton
 
         switch (v.getId()){
             case R.id.bt_main_inscription:
                Intent intent = new Intent(this,CreateAccActivity.class);
                startActivity(intent);
                 break;
-
+/**
+ *
+ * When login button is pressed, compare the email and password entered to all users in the DB
+ * If user exists, get it's right number and start either the user activity or the super user one
+ */
             case R.id.bt_main_login:
                 if(isUser(et_main_mail.getText().toString(),et_main_pwd.getText().toString())) {
                     int rights = defineRights(et_main_mail.getText().toString());
                     session.createLoginSession(et_main_mail.getText().toString());
+
                     if (rights == 1 || rights == 2){
-                    Intent intent2 = new Intent(this, UserHome.class);
-                    startActivity(intent2);}
+                        Intent intent2 = new Intent(this, UserHome.class);
+                        startActivity(intent2);}
+
                     else if (rights == 3){
                         Intent intent3 = new Intent(this, AdminHome.class);
                         startActivity(intent3);
                     }
-
-
                     break;
                 }
                 else{
-                    Toast.makeText(this,"Adresse email ou mot de passe incorrect",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,R.string.incorrectlogin,Toast.LENGTH_LONG).show();
                 }
-
-
                 break;
         }
     }
 
+    /**
+     * Method checking if login entered is correct
+     * @param mail is the user email adress
+     * @param pwd is the user password
+     * @return yes if credentials are corrects
+     */
     private boolean isUser(String mail, String pwd){
         UserAccessDB userDB = new UserAccessDB(this);
         userDB.openForWrite();
@@ -77,7 +82,11 @@ public class LoginActivity extends Activity {
         return false;
     }
 
-    //cette methode appel la db et fait un select sur le mail, pour retourner un int des droits
+    /**
+     * Method returning user rights from a defined email adress
+     * @param mail
+     * @return rights as an int
+     */
     private int defineRights(String mail){
         UserAccessDB userDB = new UserAccessDB(this);
         userDB.openForRead();

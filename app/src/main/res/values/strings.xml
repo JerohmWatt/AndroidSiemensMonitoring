@@ -12,4 +12,15 @@
     <string name="home">Accueil</string>
     <string name="connectedAs">Vous êtes connecté en tant que : </string>
     <string name="editusers">Modifier les droits des utilisateurs ></string>
+    <string name="incorrectlogin">Adresse email ou mot de passe incorrect</string>
+    <string name="userlistcontent">Liste des utilisateurs  Droit 1 = lecture; Droit 2 = lecture/écriture</string>
+    <string name="whichrights">Quels droits voulez-vous appliquer à l\'utilisateur</string>
+    <string name="confirmation">Valider</string>
+    <string name="cancelDialog">Annuler</string>
+    <string name="emptyDB">Base de données vide !</string>
+    <string name="impossibleEditSUrights">Impossible de modifier les droits du SuperUser</string>
+    <string name="editSUpwd">Modifier le mot de passe SuperAdmin</string>
+    <string name="enterNewSU">Entrez le nouveau mot de passe du compte SuperUtilisateur</string>
+    <string name="newPwd">Nouveau mot de passe</string>
+    <string name="conf">Confirmation</string>
 </resources>
