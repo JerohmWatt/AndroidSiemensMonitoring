@@ -37,7 +37,7 @@ public class CreateAccActivity extends Activity {
                 Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
                 //création de l'utilisateur avec récup des données, à faire > vérification de forme
                 User user1 = new User(et_creacc_lastname.getText().toString(),
-                        et_creacc_lastname.getText().toString(),
+                        et_creacc_firstname.getText().toString(),
                         et_creacc_mail.getText().toString(),
                         et_creacc_password.getText().toString(),
                         1); //1 car utilisateur "lambda"

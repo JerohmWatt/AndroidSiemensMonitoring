@@ -17,9 +17,9 @@ import xuro.be.projetandroidwattin.R;
 
 public class LoginActivity extends Activity {
 
-    EditText et_main_mail;
-    EditText et_main_pwd;
-    SessionManagement session;
+    private EditText et_main_mail;
+    private EditText et_main_pwd;
+    private SessionManagement session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,8 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("Mon projet","méthode oncreate");
-        et_main_mail = (EditText)findViewById(R.id.et_main_mail);
-        et_main_pwd = (EditText)findViewById(R.id.et_main_pwd);
+        et_main_mail = findViewById(R.id.et_main_mail);
+        et_main_pwd = findViewById(R.id.et_main_pwd);
         session = new SessionManagement(getApplicationContext());
     }
 
@@ -65,7 +65,7 @@ public class LoginActivity extends Activity {
         }
     }
 
-    public boolean isUser(String mail, String pwd){
+    private boolean isUser(String mail, String pwd){
         UserAccessDB userDB = new UserAccessDB(this);
         userDB.openForWrite();
         ArrayList<User> listUsers = userDB.getAllUsers();
@@ -78,7 +78,7 @@ public class LoginActivity extends Activity {
     }
 
     //cette methode appel la db et fait un select sur le mail, pour retourner un int des droits
-    public int defineRights(String mail){
+    private int defineRights(String mail){
         UserAccessDB userDB = new UserAccessDB(this);
         userDB.openForRead();
         int i = userDB.getRights(mail);

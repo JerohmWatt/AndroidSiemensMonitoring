@@ -54,11 +54,11 @@ public class UserAccessDB {
     }
 
     //méthode pour récupérer les infos d'un user apd de son combo mail/password
-    public User getUser(String email, String password) {
+    public User getUser(int id) {
         Cursor c = db.query(TABLE_USER, new String[] {
                         COL_ID, COL_LASTNAME,COL_FIRSTNAME, COL_PASSWORD,COL_EMAIL, COL_RIGHTS },
-                COL_EMAIL + " LIKE \"" + email + "\"" + "AND " +COL_PASSWORD + " LIKE \"" + password,
-                null, null, null, COL_LASTNAME);
+                COL_ID + " = \"" + id + "\"",
+                null, null, null, null);
         return cursorToUser(c);
     }
 
@@ -115,6 +115,16 @@ public class UserAccessDB {
         return r;
 
 
+    }
+
+    public int updateUser(int i, User u){
+        ContentValues content = new ContentValues();
+        content.put(COL_LASTNAME,u.getLastname());
+        content.put(COL_FIRSTNAME,u.getFirstname());
+        content.put(COL_PASSWORD,u.getPassword());
+        content.put(COL_EMAIL,u.getEmail());
+        content.put(COL_RIGHTS,u.getRights());
+        return db.update(TABLE_USER, content, COL_ID + " = " + i, null);
     }
 
 }

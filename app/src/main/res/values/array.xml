@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dialog_single_choice_array">
+        <item>Lecture</item>
+        <item>Lecture et écriture</item>
+    </string-array>
+</resources>

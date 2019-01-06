@@ -18,6 +18,7 @@
         android:layout_below="@+id/tv_file_datas"
         android:id="@+id/lv_file_liste"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>
