@@ -1,4 +1,5 @@
 package xuro.be.projetandroidwattin.BDD;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -26,6 +27,13 @@ public class UserBddSqlite extends SQLiteOpenHelper {
                         +   "   rights integer not null"
                         +   ")";
         db.execSQL(strSql);
+        ContentValues admin = new ContentValues();
+        admin.put("lastname", "john");
+        admin.put("firstname","doe");
+        admin.put("password","android3");
+        admin.put("email","android");
+        admin.put("rights",3);
+        db.insert("Table_users", null, admin);
         Log.i("database","appel onCreate");
     }
 

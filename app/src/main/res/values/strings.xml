@@ -11,4 +11,5 @@
     <string name="createAcc_nom">Nom</string>
     <string name="home">Accueil</string>
     <string name="connectedAs">Vous êtes connecté en tant que : </string>
+    <string name="editusers">Modifier les droits des utilisateurs ></string>
 </resources>
