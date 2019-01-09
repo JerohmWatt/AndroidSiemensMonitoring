@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="xuro.be.projetandroidwattin">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +23,8 @@
         <activity android:name=".Activity.UserHome" />
         <activity android:name=".Activity.AdminHome" />
         <activity android:name=".Activity.EditUsers" />
-        <activity android:name=".Activity.EditSUpwd"></activity>
+        <activity android:name=".Activity.EditSUpwd" />
+        <activity android:name=".Activity.ReadDatas"></activity>
     </application>
 
 </manifest>
