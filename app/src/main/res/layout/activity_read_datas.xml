@@ -1,75 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.ReadDatas">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/lightBlue">
 
-    <Button
-        android:id="@+id/bt_main_ConnexS7"
-        android:onClick="onReadDatasClickManager"
-        android:text="Connexion_S7"
+    <ImageView
+        android:id="@+id/ic_account_box_black_24dp"
         android:layout_width="97dp"
-        android:layout_height="99dp"/>
+        android:layout_height="99dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_adb_black_24dp" />
 
     <TextView
-        android:id="@+id/tv_main_plc"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:background="#0090ff"
-        android:textColor="#FFFFFFFF"
-        android:text="Ref plc"
-        android:layout_width="97dp"
-        android:layout_height="99dp"/>
-    <ProgressBar
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:id="@+id/pb_main_progressionS7"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:max="255"
-        android:visibility="visible"/>
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="Lecture des comprimés"
+        android:textSize="30dp" />
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/ln_main_ecrireS7"
-        android:layout_width="fill_parent"
+    <Button
+        android:id="@+id/bt_readdatas_ConnexS7"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:onClick="onReadDatasClickManager"
+        android:text="Connexion" />
+
+    <TextView
+        android:id="@+id/tv_readdatas_plc"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right"
-        android:visibility="invisible">
-        <CheckBox
-            android:id="@+id/ch_main_aru"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:background="#FFFF0000"
-            android:textColor="#FFFFFFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="onReadDatasClickManager"
-            android:text=" A.R.U. "/>
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="PLC : ???"
+        android:textSize="20dp" />
 
-        <CheckBox
-            android:id="@+id/ch_main_activerouv"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FF00FF00"
-            android:checked="false"
-            android:onClick="onReadDatasClickManager"
-            android:text=" /\\ Ouvrir /\\ "/>
-        <CheckBox
-            android:id="@+id/ch_main_activerfer"
-            android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FF00FF00"
-            android:checked="false"
-            android:onClick="onReadDatasClickManager"
-            android:text=" \\/ Fermer \\/ "/>
-    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_readdatas_pillsBottled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="@string/home"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_readdatas_fullBottles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/home"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/et_readdatas_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:inputType="number"
+        android:hint="Valeur à envoyer"
+        />
+
+    <EditText
+        android:id="@+id/et_readdatas_dbb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:inputType="number"
+        android:hint="DBB"
+        />
+
+    <Button
+        android:id="@+id/bt_readdatas_pushdata"
+        android:onClick="onReadDatasClickManager"
+        android:text="Pushdata"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
 
 </LinearLayout>

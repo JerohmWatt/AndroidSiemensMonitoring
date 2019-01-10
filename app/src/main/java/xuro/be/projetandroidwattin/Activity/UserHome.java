@@ -16,6 +16,7 @@ public class UserHome extends Activity {
     TextView tv_userhome_loggedAs;
     SessionManagement session;
     Button bt_userhome_readdatas;
+    Thread thread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class UserHome extends Activity {
         tv_userhome_loggedAs = (TextView)findViewById(R.id.tv_userhome_loggedAs);
         tv_userhome_loggedAs.setText(getString(R.string.connectedAs) + mail);
         bt_userhome_readdatas = findViewById(R.id.bt_userhome_readdatas);
-
+        thread = new Thread();
 
     }
 
