@@ -31,6 +31,8 @@ public class SessionManagement {
         // Email address (make variable public to access from outside)
         public static final String KEY_EMAIL = "email";
 
+    public static final String KEY_RIGHTS = "rights";
+
         //tag log
         private static final String TAG = "SESSION";
 
@@ -42,10 +44,18 @@ public class SessionManagement {
         }
 
         //store login email in shared prefs
-        public void createLoginSession(String email){
+        public void createLoginSession(String email, String rights){
             Log.v("sessionmanager","sessmanager" + email);
             editor.putString(KEY_EMAIL,email);
+            editor.putString(KEY_RIGHTS,rights);
             editor.commit();
+
+        }
+
+        public String getUserRights(){
+            String r;
+            r = pref.getString(KEY_RIGHTS,null);
+            return r;
         }
 
         public String getUserEmail(){

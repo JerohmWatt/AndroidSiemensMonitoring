@@ -1,14 +1,10 @@
 package xuro.be.projetandroidwattin.Automat;
-
-import android.util.Log;
 import android.widget.EditText;
-
 import java.util.concurrent.atomic.AtomicBoolean;
-
 import xuro.be.projetandroidwattin.Simatic_S7.S7;
 import xuro.be.projetandroidwattin.Simatic_S7.S7Client;
 
-public class WriteTaskS7{
+public class WritePillsS7 {
     private AtomicBoolean isRunning = new AtomicBoolean(false);
     private Thread writeThread;
     private AutomateS7 plcS7;
@@ -19,8 +15,7 @@ public class WriteTaskS7{
     public void setDbb(int d){
         this.dbb = d;
     }
-    public WriteTaskS7(EditText ddb){
-//monAPI = new AutomateS7();
+    public WritePillsS7(EditText ddb){
         comS7 = new S7Client();
         plcS7 = new AutomateS7();
         writeThread = new Thread(plcS7);

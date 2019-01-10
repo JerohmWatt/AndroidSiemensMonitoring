@@ -1,6 +1,7 @@
 package xuro.be.projetandroidwattin.Activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import xuro.be.projetandroidwattin.BDD.User;
@@ -28,6 +36,7 @@ public class LoginActivity extends Activity {
         et_main_mail = findViewById(R.id.et_main_mail);
         et_main_pwd = findViewById(R.id.et_main_pwd);
         session = new SessionManagement(getApplicationContext());
+        createFileConfig();
     }
 
     public void onMainClickManager(View v) {
@@ -45,7 +54,7 @@ public class LoginActivity extends Activity {
             case R.id.bt_main_login:
                 if(isUser(et_main_mail.getText().toString(),et_main_pwd.getText().toString())) {
                     int rights = defineRights(et_main_mail.getText().toString());
-                    session.createLoginSession(et_main_mail.getText().toString());
+                    session.createLoginSession(et_main_mail.getText().toString(),Integer.toString(rights));
 
                     if (rights == 1 || rights == 2){
                         Intent intent2 = new Intent(this, UserHome.class);
@@ -80,6 +89,37 @@ public class LoginActivity extends Activity {
             }
             }
         return false;
+    }
+
+    public void createFileConfig(){
+        if(new File(String.valueOf(this.getFilesDir()) + "/cznfig.txt").isFile()) {
+            Log.i("texte","file exist");
+        }
+        else {
+            Log.i("texte","file doesnt exist");
+            try {
+                FileOutputStream confile = openFileOutput("config.txt", MODE_PRIVATE);
+                for (int i = 0; i<=1; i++){
+                byte[] tab;
+                String a = "192.168.0.15#";
+                tab = a.toString().getBytes();
+                confile.write(tab);
+                String r = "0#";
+                tab = r.toString().getBytes();
+                confile.write(tab);
+                String s = "2#";
+                tab = s.toString().getBytes();
+                confile.write(tab);
+                }
+                confile.close();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     /**

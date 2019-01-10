@@ -24,7 +24,9 @@
         <activity android:name=".Activity.AdminHome" />
         <activity android:name=".Activity.EditUsers" />
         <activity android:name=".Activity.EditSUpwd" />
-        <activity android:name=".Activity.ReadDatas"></activity>
+        <activity android:name=".Activity.PillsActivity" />
+        <activity android:name=".Activity.EditParamsActivity" />
+        <activity android:name=".Activity.LiquidActivity"></activity>
     </application>
 
 </manifest>

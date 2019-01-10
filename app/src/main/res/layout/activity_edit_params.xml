@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/lightBlue">
+
+    <ImageView
+        android:id="@+id/ic_account_box_black_24dp"
+        android:layout_width="97dp"
+        android:layout_height="99dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_vpn_key_black_24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="Paramètres IP de l'automate"
+        android:textSize="30dp" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:id="@+id/rg_editparams_pillLiquid">
+
+
+            <RadioButton
+                android:id="@+id/rb_editparams_pills"
+                android:layout_width="185dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Comprimés" />
+
+            <RadioButton
+                android:id="@+id/rb_editparams_liquid"
+                android:layout_width="166dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Liquide" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_editparams_ip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Adresse IP"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_editparams_rack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Rack"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_editparams_slot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Slot"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/bt_editparams_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        android:onClick="onEditParamsClickManager"/>
+
+    <Button
+        android:id="@+id/bt_editparams_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Annuler"
+        android:onClick="onEditParamsClickManager"/>
+
+</LinearLayout>
