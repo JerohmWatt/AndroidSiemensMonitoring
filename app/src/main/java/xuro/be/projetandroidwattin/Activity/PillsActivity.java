@@ -14,6 +14,12 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import xuro.be.projetandroidwattin.Automat.ReadPillsS7;
 import xuro.be.projetandroidwattin.Automat.WritePillsS7;
 import xuro.be.projetandroidwattin.Models.SessionManagement;
@@ -34,6 +40,7 @@ public class PillsActivity extends Activity {
     private TextView tv_pillsamount;
     private ImageView iv_status;
     private TextView tv_status;
+    private String ip, rack, slot;
 
     SessionManagement session;
 
@@ -59,6 +66,12 @@ public class PillsActivity extends Activity {
 
         connexStatus = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         network = connexStatus.getActiveNetworkInfo();
+
+        try {
+            getConnexionValues();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onReadDatasClickManager(View v) {
@@ -72,8 +85,8 @@ public class PillsActivity extends Activity {
                         btn_connect.setText("Déconnexion");
                         readS7 = new ReadPillsS7(v, btn_connect, tv_plc, tv_fullbottles,tv_pillsamount, tv_status);
                         writeS7 = new WritePillsS7(et_dbb);
-                        readS7.Start("192.168.0.15","0", "2");
-                        writeS7.Start("192.168.0.15", "0", "2");
+                        readS7.Start(ip,rack,slot);
+                        writeS7.Start(ip,rack,slot);
                     }
                     else{
                         readS7.Stop();
@@ -113,4 +126,29 @@ public class PillsActivity extends Activity {
         }
     }
 
-}
+    public void getConnexionValues() throws IOException {
+        FileInputStream ins = openFileInput("config.txt");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(ins));
+        StringBuilder out = new StringBuilder();
+        String line;
+        while((line = reader.readLine()) != null){
+            out.append(line);
+        }
+        reader.close();
+        ins.close();
+        String[] items = out.toString().split("#");
+        int i=0;
+        String [] logDatas = {"a","b","c","d","e","f"};
+        for (String item : items)
+        {
+            logDatas[i] = item;
+            i++;
+        }
+
+        ip = logDatas[0];
+        rack = logDatas[1];
+        slot = logDatas[2];
+    }
+
+    }
+
