@@ -20,7 +20,7 @@ public class UserHome extends Activity {
 
     TextView tv_userhome_loggedAs;
     SessionManagement session;
-    Button bt_userhome_goToPills, bt_userhome_goToLiquid;
+    Button bt_userhome_goToPills, bt_userhome_goToLiquid, bt_userhome_accessPillApi, bt_userhome_accessLiquidApi;
     Thread thread;
     private TextView tv_namepills, tv_ipPills, tv_rackPills, tv_slotPills, tv_nameLiquid, tv_ipLiquid, tv_rackLiquid, tv_slotLiquid;
 
@@ -39,6 +39,8 @@ public class UserHome extends Activity {
         tv_userhome_loggedAs.setText(getString(R.string.connectedAs) + mail);
         bt_userhome_goToPills = findViewById(R.id.bt_userhome_goToPills);
         bt_userhome_goToLiquid = findViewById(R.id.bt_userhome_goToLiquid);
+        bt_userhome_accessPillApi = findViewById(R.id.bt_userhome_accessPillApi);
+        bt_userhome_accessLiquidApi = findViewById(R.id.bt_userhome_accessLiquidApi);
         tv_namepills = findViewById(R.id.tv_userhome_namePills);
         tv_ipPills = findViewById(R.id.tv_userhome_ipPills);
         tv_rackPills = findViewById(R.id.tv_userhome_rackPills);
@@ -60,6 +62,7 @@ public class UserHome extends Activity {
 
     public void onUserHomeClickManager(View v) {
 
+        Intent intent4 = new Intent(getApplicationContext(),WebActivity.class);
         switch (v.getId()) {
             case R.id.bt_userhome_goToPills:
                 Log.i("datasss","yes");
@@ -75,7 +78,16 @@ public class UserHome extends Activity {
                 Intent intent3 = new Intent(getApplicationContext(),EditParamsActivity.class);
                 startActivity(intent3);
                 break;
+            case R.id.bt_userhome_accessPillApi:
+                intent4.putExtra("AUTOMATE","pill");
+                startActivity(intent4);
+                break;
+            case R.id.bt_userhome_accessLiquidApi:
+                intent4.putExtra("AUTOMATE","liquid");
+                startActivity(intent4);
+                break;
         }
+
     }
 
     public void readDatas() throws IOException {
