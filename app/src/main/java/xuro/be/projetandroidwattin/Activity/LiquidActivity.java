@@ -29,6 +29,7 @@ import xuro.be.projetandroidwattin.R;
 
 public class LiquidActivity extends Activity {
 
+    private Button btn_connect;
     private TextView tv_plc;
     private TextView tv_liquid, tv_liquid_auto, tv_liquid_manu, tv_liquid_vanne;
     private ReadLiquidS7 readS7;
