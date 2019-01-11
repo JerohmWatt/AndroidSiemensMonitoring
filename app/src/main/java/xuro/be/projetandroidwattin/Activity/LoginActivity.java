@@ -1,7 +1,6 @@
 package xuro.be.projetandroidwattin.Activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,9 +12,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import xuro.be.projetandroidwattin.BDD.User;
@@ -33,7 +29,7 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         et_main_mail = findViewById(R.id.et_main_mail);
         et_main_pwd = findViewById(R.id.et_main_pwd);
         session = new SessionManagement(getApplicationContext());
@@ -104,13 +100,13 @@ public class LoginActivity extends Activity {
                 for (int i = 0; i<=1; i++){
                 byte[] tab;
                 String a = "192.168.0.15#";
-                tab = a.toString().getBytes();
+                tab = a.getBytes();
                 confile.write(tab);
                 String r = "0#";
-                tab = r.toString().getBytes();
+                tab = r.getBytes();
                 confile.write(tab);
                 String s = "2#";
-                tab = s.toString().getBytes();
+                tab = s.getBytes();
                 confile.write(tab);
                 }
                 confile.close();

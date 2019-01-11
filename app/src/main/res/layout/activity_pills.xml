@@ -19,8 +19,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Lecture des comprimés"
-        android:textSize="30dp"
+        android:text="@string/lecture_des_comprim_s"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
@@ -30,8 +30,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="PLC : ???"
-        android:textSize="20dp" />
+        android:text="@string/plc"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_readdatas_status"
@@ -40,8 +40,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="En service : "
-        android:textSize="20dp" />
+        android:text="@string/en_service"
+        android:textSize="20sp" />
 
 
     <TextView
@@ -51,8 +51,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Comprimés par bouteille : ??"
-        android:textSize="20dp" />
+        android:text="@string/comprim_s_par_bouteille"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_readdatas_fullBottles"
@@ -60,8 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
-        android:text="Nombre de bouteilles produites : ??"
-        android:textSize="20dp" />
+        android:text="@string/nombre_de_bouteilles_produites"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_readdatas_writedatas"
@@ -69,8 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
-        android:text="Ecriture de données"
-        android:textSize="30dp"
+        android:text="@string/ecriture_de_donn_es"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <EditText
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:inputType="number"
-        android:hint="Valeur à envoyer"
+        android:hint="@string/valeur_envoyer"
         />
 
     <EditText
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:inputType="number"
-        android:hint="DBB"
+        android:hint="@string/dbb"
         />
 
     <Button
@@ -105,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onReadDatasClickManager"
-        android:text="Pushdata" />
+        android:text="@string/envoyer_les_donn_es" />
 
 
 </LinearLayout>

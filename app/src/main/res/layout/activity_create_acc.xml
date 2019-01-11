@@ -22,7 +22,7 @@
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
         android:text="@string/createAcc_inscr"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
 
     <EditText

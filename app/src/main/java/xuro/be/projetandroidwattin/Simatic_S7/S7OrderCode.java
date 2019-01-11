@@ -20,9 +20,9 @@ public class S7OrderCode {
     protected void Update(byte[] Src, int Pos, int Size)
     {
         System.arraycopy(Src, Pos, Buffer, 0, Size);
-        V1 = (byte) Src[Size-3];
-        V2 = (byte) Src[Size-2];
-        V3 = (byte) Src[Size-1];
+        V1 = Src[Size-3];
+        V2 = Src[Size-2];
+        V3 = Src[Size-1];
     }   
 
     public String Code()

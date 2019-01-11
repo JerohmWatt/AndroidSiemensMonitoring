@@ -73,18 +73,12 @@ public class ReadPillsS7 {
     }
 
     private void downloadOnPreExecute(int t) {
-        Toast.makeText(vi_main_ui.getContext(),
-                "Le traitement de la tâche de fond est démarré !" + "\n"
-                , Toast.LENGTH_SHORT).show();
         tv_plc.setText("PLC : " + String.valueOf(t));
     }
     private void downloadOnProgressUpdate(int progress) {
         //pb_main_progressionS7.setProgress(progress);
     }
     private void downloadOnPostExecute() {
-        Toast.makeText(vi_main_ui.getContext(),
-                "Le traitement de la tâche de fond est terminé !"
-                ,Toast.LENGTH_LONG).show();
        // pb_main_progressionS7.setProgress(0);
         tv_plc.setText("PLC : /!\\");
     }

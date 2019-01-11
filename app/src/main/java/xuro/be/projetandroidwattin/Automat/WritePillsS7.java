@@ -55,7 +55,7 @@ public class WritePillsS7 {
     public void setWriteBool(String value){
         char[] array = value.toCharArray();
         for(int i =0; i< value.length(); i++){
-            S7.SetBitAt(motCommande, 0, i, array[array.length-(i+1)] == '1' ? true : false);
+            S7.SetBitAt(motCommande, 0, i, array[array.length - (i + 1)] == '1');
         }
     }
     public void setWriteInt(String value){

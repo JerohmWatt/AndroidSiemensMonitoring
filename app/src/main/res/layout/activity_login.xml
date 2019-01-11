@@ -22,7 +22,7 @@
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
         android:text="@string/main_login"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
 
     <EditText
@@ -44,12 +44,15 @@
 
     <Button
         android:id="@+id/bt_main_inscription"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onMainClickManager"
         android:text="@string/main_creercompte" />
+
     <Button
         android:id="@+id/bt_main_login"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onMainClickManager"

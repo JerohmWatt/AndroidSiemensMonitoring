@@ -49,13 +49,14 @@ public class LiquidActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liquid);
 
-        tv_plc = (TextView) findViewById(R.id.tv_readdatas_plc);
+        tv_plc = findViewById(R.id.tv_readdatas_plc);
         et_value = findViewById(R.id.et_readdatas_value);
         bt_pushdata = findViewById(R.id.bt_readdatas_pushdata);
-        tv_liquid = (TextView) findViewById(R.id.tv_liquid_level);
+        tv_liquid = findViewById(R.id.tv_liquid_level);
         tv_liquid_auto = findViewById(R.id.tv_liquid_auto);
         tv_liquid_manu = findViewById(R.id.tv_liquid_manu);
         tv_liquid_vanne = findViewById(R.id.tv_liquid_vanne);
+        btn_connect = findViewById(R.id.bt_readdatas_ConnexS7);
 
 
 
@@ -78,7 +79,6 @@ public class LiquidActivity extends Activity {
                 if(network != null && network.isConnectedOrConnecting())
                 {
                     if (btn_connect.getText().equals("Connexion")){
-                        Toast.makeText(this,network.getTypeName(),Toast.LENGTH_SHORT).show();
                         btn_connect.setText("Déconnexion");
                         readS7 = new ReadLiquidS7(v, btn_connect, tv_plc, tv_liquid, tv_liquid_auto, tv_liquid_manu, tv_liquid_vanne);
                         //writeS7 = new WritePillsS7(et_dbb);
@@ -89,8 +89,6 @@ public class LiquidActivity extends Activity {
                         readS7.Stop();
                         //writeS7.Stop();
                         btn_connect.setText("Connexion");
-                        Toast.makeText(getApplication(), "Traitement interrompu par l'utilisateur ! ",
-                                Toast.LENGTH_LONG).show();
                     }
                 }
                 else

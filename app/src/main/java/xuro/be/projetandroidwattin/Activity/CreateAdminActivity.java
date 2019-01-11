@@ -2,7 +2,6 @@ package xuro.be.projetandroidwattin.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +22,7 @@ public class CreateAdminActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_supwd);
+        setContentView(R.layout.activity_create_admin);
         Toast.makeText(this, "Premier lancement : veuillez créer le compte administrateur", Toast.LENGTH_LONG).show();
         et_createadmin_lastname = findViewById(R.id.et_createadmin_lastname);
         et_createadmin_firstname = findViewById(R.id.et_createadmin_firstname);

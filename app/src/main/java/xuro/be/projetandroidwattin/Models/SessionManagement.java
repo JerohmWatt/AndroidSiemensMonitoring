@@ -31,7 +31,7 @@ public class SessionManagement {
         // Email address (make variable public to access from outside)
         public static final String KEY_EMAIL = "email";
 
-    public static final String KEY_RIGHTS = "rights";
+        public static final String KEY_RIGHTS = "rights";
 
         //tag log
         private static final String TAG = "SESSION";

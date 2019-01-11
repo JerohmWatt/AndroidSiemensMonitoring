@@ -20,9 +20,9 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Création du compte Administrateur"
+        android:text="@string/cr_ation_du_compte_administrateur"
         android:textAlignment="center"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
 
     <EditText
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Nom" />
+        android:hint="@string/nom" />
 
     <EditText
         android:id="@+id/et_createadmin_firstname"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Prénom" />
+        android:hint="@string/pr_nom" />
 
     <EditText
         android:id="@+id/et_createadmin_mail"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="Email"/>
+        android:hint="@string/email"/>
 
     <EditText
         android:id="@+id/et_createadmin_pwd"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Mot de passe"/>
+        android:hint="@string/mot_de_passe"/>
 
     <EditText
         android:id="@+id/et_createadmin_pwdconfirm"
@@ -63,14 +63,15 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Confirmation du mot de passe"/>
+        android:hint="@string/confirmation_du_mot_de_passe"/>
 
     <Button
         android:id="@+id/bt_createadmin_confirm"
+        style="@android:style/Widget.Button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Valider"
-        android:onClick="onCreateAdminClickManager"/>
+        android:onClick="onCreateAdminClickManager"
+        android:text="Valider" />
 
 
 </LinearLayout>

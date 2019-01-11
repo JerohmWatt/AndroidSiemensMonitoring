@@ -57,10 +57,6 @@ public class EditUsers extends Activity {
                     session.logoutUser();
                     break;
 
-                case R.id.bt_adminhome_editpwd:
-                    Intent intent1 = new Intent(getApplicationContext(),CreateAdminActivity.class);
-                    startActivity(intent1);
-
                 default:
                     break;
 

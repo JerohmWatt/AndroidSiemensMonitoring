@@ -141,11 +141,6 @@ public class UserAccessDB {
         Cursor c = db.query(TABLE_USER, new String[] {
                         COL_ID, COL_LASTNAME, COL_FIRSTNAME, COL_PASSWORD, COL_EMAIL, COL_RIGHTS }, null, null, null, null,
                 COL_ID);
-        if (c.getCount() == 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return c.getCount() != 0;
     }
 }

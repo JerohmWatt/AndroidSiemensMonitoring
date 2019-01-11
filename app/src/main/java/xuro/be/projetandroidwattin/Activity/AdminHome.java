@@ -40,10 +40,6 @@ public class AdminHome extends Activity {
                 session.logoutUser();
                 break;
 
-            case R.id.bt_adminhome_editpwd:
-                Intent intent2 = new Intent(getApplicationContext(),CreateAdminActivity.class);
-                startActivity(intent2);
-                break;
             default:
                     break;
 

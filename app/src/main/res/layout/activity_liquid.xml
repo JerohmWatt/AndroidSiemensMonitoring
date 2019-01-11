@@ -19,8 +19,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Lecture de l'asservissement"
-        android:textSize="30dp"
+        android:text="@string/lecture_de_l_asservissement"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
@@ -30,8 +30,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="PLC : ???"
-        android:textSize="20dp" />
+        android:text="@string/plc"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_liquid_level"
@@ -40,8 +40,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Niveau de liquide : ??"
-        android:textSize="20dp" />
+        android:text="@string/niveau_de_liquide"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_liquid_auto"
@@ -50,8 +50,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Consigne Auto : ??"
-        android:textSize="20dp" />
+        android:text="@string/consigne_auto"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_liquid_manu"
@@ -60,8 +60,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Consigne Manuelle : ??"
-        android:textSize="20dp" />
+        android:text="@string/consigne_manuelle"
+        android:textSize="20sp" />
 
 
     <TextView
@@ -71,8 +71,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Pilotage vanne : ??"
-        android:textSize="20dp" />
+        android:text="@string/pilotage_vanne"
+        android:textSize="20sp" />
 
 
 

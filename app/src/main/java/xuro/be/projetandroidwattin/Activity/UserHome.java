@@ -35,7 +35,7 @@ public class UserHome extends Activity {
         String mail = session.getUserEmail();
         Log.v("sessionmanager","userhome" +" "+ mail);
 
-        tv_userhome_loggedAs = (TextView)findViewById(R.id.tv_userhome_loggedAs);
+        tv_userhome_loggedAs = findViewById(R.id.tv_userhome_loggedAs);
         tv_userhome_loggedAs.setText(getString(R.string.connectedAs) + mail);
         bt_userhome_goToPills = findViewById(R.id.bt_userhome_goToPills);
         bt_userhome_goToLiquid = findViewById(R.id.bt_userhome_goToLiquid);

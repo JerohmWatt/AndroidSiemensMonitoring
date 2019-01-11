@@ -848,7 +848,7 @@ public class S7Client
             else
             {
                 S7.SetWordAt(S7_SZL_NEXT, 11, ++Seq_out);
-                PDU[24] = (byte)Seq_in;
+                PDU[24] = Seq_in;
                 SendPacket(S7_SZL_NEXT);                
             }
             if (LastError!=0)
@@ -866,7 +866,7 @@ public class S7Client
                             // Gets Amount of this slice
                             DataSZL=S7.GetWordAt(PDU,31)-8; // Skips extra params (ID, Index ...)
                             Done=PDU[26]==0x00;
-                            Seq_in=(byte)PDU[24]; // Slice sequence
+                            Seq_in= PDU[24]; // Slice sequence
                             
                             SZL.LENTHDR=S7.GetWordAt(PDU, 37);
                             SZL.N_DR=S7.GetWordAt(PDU, 39);
@@ -889,7 +889,7 @@ public class S7Client
                             // Gets Amount of this slice
                             DataSZL=S7.GetWordAt(PDU,31); 
                             Done=PDU[26]==0x00;
-                            Seq_in=(byte)PDU[24]; // Slice sequence
+                            Seq_in= PDU[24]; // Slice sequence
                             SZL.Copy(PDU, 37, Offset, DataSZL);                       
                             Offset+=DataSZL;
                             SZL.DataSize+=DataSZL;

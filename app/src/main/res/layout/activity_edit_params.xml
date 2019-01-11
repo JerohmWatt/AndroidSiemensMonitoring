@@ -20,8 +20,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
-        android:text="Paramètres IP de l'automate"
-        android:textSize="30dp" />
+        android:text="@string/param_tres_ip_de_l_automate"
+        android:textSize="30sp" />
 
 
     <RadioGroup
@@ -35,14 +35,14 @@
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Comprimés" />
+                android:text="@string/comprim_s" />
 
             <RadioButton
                 android:id="@+id/rb_editparams_liquid"
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Liquide" />
+                android:text="@string/liquide" />
 
     </RadioGroup>
 
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Adresse IP"
+        android:hint="@string/adresse_ip"
         android:inputType="textPersonName" />
 
     <EditText
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Rack"
+        android:hint="@string/rack"
         android:inputType="number" />
 
     <EditText
@@ -67,21 +67,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Slot"
+        android:hint="@string/slot"
         android:inputType="number" />
 
     <Button
         android:id="@+id/bt_editparams_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Valider"
+        android:text="@string/valider"
         android:onClick="onEditParamsClickManager"/>
 
     <Button
         android:id="@+id/bt_editparams_cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Annuler"
+        android:text="@string/annuler"
         android:onClick="onEditParamsClickManager"/>
 
 </LinearLayout>

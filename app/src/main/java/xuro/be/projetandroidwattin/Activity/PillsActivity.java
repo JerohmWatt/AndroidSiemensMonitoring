@@ -12,11 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -48,10 +45,10 @@ public class PillsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_datas);
+        setContentView(R.layout.activity_pills);
 
-        btn_connect = (Button) findViewById(R.id.bt_readdatas_ConnexS7);
-        tv_plc = (TextView) findViewById(R.id.tv_readdatas_plc);
+        btn_connect = findViewById(R.id.bt_readdatas_ConnexS7);
+        tv_plc = findViewById(R.id.tv_readdatas_plc);
         tv_fullbottles = findViewById(R.id.tv_readdatas_fullBottles);
         et_dbb = findViewById(R.id.et_readdatas_dbb);
         et_value = findViewById(R.id.et_readdatas_value);
@@ -92,8 +89,6 @@ public class PillsActivity extends Activity {
                         readS7.Stop();
                         writeS7.Stop();
                         btn_connect.setText("Connexion");
-                        Toast.makeText(getApplication(), "Traitement interrompu par l'utilisateur ! ",
-                                Toast.LENGTH_LONG).show();
                     }
                 }
                 else
@@ -104,7 +99,7 @@ public class PillsActivity extends Activity {
 
             case R.id.bt_readdatas_pushdata:
 
-                if(session.getUserEmail() == "2") {
+
                     if (et_dbb.getText().toString().isEmpty() || et_value.getText().toString().isEmpty()) {
                         Toast.makeText(this, "Un des champs n'est pas rempli", Toast.LENGTH_SHORT).show();
                     } else {
@@ -116,10 +111,6 @@ public class PillsActivity extends Activity {
                             writeS7.setWriteInt(et_value.getText().toString());
                         }
                     }
-                }
-                else{
-                    Toast.makeText(this, "Vous n'avez pas les droits pour écrire des données", Toast.LENGTH_SHORT).show();
-                }
 
                 break;
 

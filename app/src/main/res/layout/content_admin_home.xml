@@ -20,7 +20,7 @@
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
         android:text="@string/home"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/tv_adminhome_loggedAs"
@@ -30,20 +30,14 @@
         android:layout_marginBottom="20dp"
         android:baselineAligned="false"
         android:text=""
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/bt_adminhome_editusers"
+        style="@android:style/Widget.Button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/editusers"
-        android:onClick="onAdminHomeClickManager"/>
-
-    <Button
-        android:id="@+id/bt_adminhome_editpwd"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/editSUpwd"
-        android:onClick="onAdminHomeClickManager"/>
+        android:onClick="onAdminHomeClickManager"
+        android:text="@string/editusers" />
 
 </LinearLayout>
