@@ -4,13 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,7 +58,7 @@ public class EditUsers extends Activity {
                     break;
 
                 case R.id.bt_adminhome_editpwd:
-                    Intent intent1 = new Intent(getApplicationContext(),EditSUpwd.class);
+                    Intent intent1 = new Intent(getApplicationContext(),CreateAdminActivity.class);
                     startActivity(intent1);
 
                 default:

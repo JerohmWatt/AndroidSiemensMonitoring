@@ -28,12 +28,6 @@ public class UserBddSqlite extends SQLiteOpenHelper {
                         +   ")";
         db.execSQL(strSql);
         ContentValues admin = new ContentValues();
-        admin.put("lastname", "john");
-        admin.put("firstname","doe");
-        admin.put("password","android3");
-        admin.put("email","android");
-        admin.put("rights",3);
-        db.insert("Table_users", null, admin);
         Log.i("database","appel onCreate");
     }
 

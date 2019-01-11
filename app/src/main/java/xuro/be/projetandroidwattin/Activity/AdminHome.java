@@ -3,7 +3,6 @@ package xuro.be.projetandroidwattin.Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -42,7 +41,7 @@ public class AdminHome extends Activity {
                 break;
 
             case R.id.bt_adminhome_editpwd:
-                Intent intent2 = new Intent(getApplicationContext(),EditSUpwd.class);
+                Intent intent2 = new Intent(getApplicationContext(),CreateAdminActivity.class);
                 startActivity(intent2);
                 break;
             default:

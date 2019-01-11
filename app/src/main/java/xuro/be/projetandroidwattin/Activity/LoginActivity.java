@@ -28,6 +28,7 @@ public class LoginActivity extends Activity {
     private EditText et_main_mail;
     private EditText et_main_pwd;
     private SessionManagement session;
+    private UserAccessDB userdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class LoginActivity extends Activity {
         et_main_pwd = findViewById(R.id.et_main_pwd);
         session = new SessionManagement(getApplicationContext());
         createFileConfig();
+        checkIsAdmin();
     }
 
     public void onMainClickManager(View v) {
@@ -92,7 +94,7 @@ public class LoginActivity extends Activity {
     }
 
     public void createFileConfig(){
-        if(new File(String.valueOf(this.getFilesDir()) + "/cznfig.txt").isFile()) {
+        if(new File(String.valueOf(this.getFilesDir()) + "/config.txt").isFile()) {
             Log.i("texte","file exist");
         }
         else {
@@ -120,6 +122,18 @@ public class LoginActivity extends Activity {
             }
 
         }
+    }
+
+    public void checkIsAdmin(){
+        UserAccessDB userDB = new UserAccessDB(this);
+        userDB.openForWrite();
+        if(userDB.isAdmin()){
+        }
+        else{
+            Intent intent = new Intent(getApplicationContext(),CreateAdminActivity.class);
+            startActivity(intent);
+        }
+        userDB.Close();
     }
 
     /**

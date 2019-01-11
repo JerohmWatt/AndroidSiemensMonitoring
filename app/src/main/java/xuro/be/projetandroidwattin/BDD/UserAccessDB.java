@@ -136,4 +136,16 @@ public class UserAccessDB {
         content.put(COL_RIGHTS,u.getRights());
         db.update(TABLE_USER, content, COL_ID + " = " + i, null);
     }
+
+    public boolean isAdmin(){
+        Cursor c = db.query(TABLE_USER, new String[] {
+                        COL_ID, COL_LASTNAME, COL_FIRSTNAME, COL_PASSWORD, COL_EMAIL, COL_RIGHTS }, null, null, null, null,
+                COL_ID);
+        if (c.getCount() == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 }

@@ -54,6 +54,13 @@
         android:inputType="textPassword"
         android:hint="@string/pwd"
         />
+    <EditText
+        android:id="@+id/et_creacc_passwordconfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/pwd"
+        />
 
 
     <Button
