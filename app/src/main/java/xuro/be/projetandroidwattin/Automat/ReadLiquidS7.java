@@ -25,24 +25,33 @@ public class ReadLiquidS7 {
     private static final int MESSAGE_PROGRESS_UPDATE = 2;
     private static final int MESSAGE_POST_EXECUTE = 3;
     private static final int READ_LIQUID_LEVEL = 4;
+    private static final int READ_AUTO = 5;
+    private static final int READ_MANU = 6;
+    private static final int READ_VANNE = 7;
 
     //ici toutes les constantes en fonction des données à récupérer
     private AtomicBoolean isRunning = new AtomicBoolean(false);
     private Button bt_connex;
     private View vi_main_ui;
-    private TextView tv_plc, tv_liquid_level;
+    private TextView tv_plc, tv_liquid_level, tv_auto, tv_manu, tv_vanne;
     private AutomateS7 plcS7;
     private Thread readThread;
     private S7Client comS7;
     private String[] param = new String[10];
     private byte[] datasPLC = new byte[512];
     private byte[] levelPLC = new byte[2];
+    private byte[] autoPLC = new byte[2];
+    private byte[] manuPLC = new byte[2];
+    private byte[] vannePLC = new byte[2];
 
-    public ReadLiquidS7(View v, Button b, TextView t, TextView lev){
+    public ReadLiquidS7(View v, Button b, TextView t, TextView lev, TextView auto, TextView manu, TextView vanne){
         vi_main_ui = v;
         bt_connex = b;
         tv_plc = t;
         tv_liquid_level = lev;
+        tv_auto = auto;
+        tv_manu = manu;
+        tv_vanne = vanne;
         comS7 = new S7Client();
         plcS7 = new AutomateS7();
         readThread = new Thread(plcS7);
@@ -84,6 +93,18 @@ public class ReadLiquidS7 {
         tv_liquid_level.setText("Niveau de liquide : " + String.valueOf(i));
     }
 
+    private void updateAuto(int i ){
+        tv_auto.setText("Consigne Auto : "+String.valueOf(i));
+    }
+
+    private void updateManu(int i){
+        tv_manu.setText("Consigne Manuelle : "+String.valueOf(i));
+    }
+
+    private void updateVanne(int i){
+        tv_vanne.setText("Pilote vanne : "+String.valueOf(i));
+    }
+
 
 
     private Handler monHandler = new Handler() {
@@ -102,6 +123,17 @@ public class ReadLiquidS7 {
                     break;
                 case READ_LIQUID_LEVEL:
                     updateLiquidLevel(msg.arg1);
+                    break;
+                case READ_AUTO:
+                    updateAuto(msg.arg1);
+                    break;
+                case READ_MANU:
+                    updateManu(msg.arg1);
+                    break;
+                case READ_VANNE:
+                    updateVanne(msg.arg1);
+                    break;
+
                 default:
                     break;
             }
@@ -129,7 +161,10 @@ public class ReadLiquidS7 {
                     if (res.equals(0)){
                         int retInfo = comS7.ReadArea(S7.S7AreaDB,5,0,2,datasPLC);//info qu'on récupère > automate est activé boolean
                         int levelInfo = comS7.ReadArea(S7.S7AreaDB,5,16,2,levelPLC);
-                        int plc=1,level;
+                        int autoInfo = comS7.ReadArea(S7.S7AreaDB, 5,18,2, autoPLC);
+                        int manuInfo = comS7.ReadArea(S7.S7AreaDB, 5,20,2, manuPLC);
+                        int vanneInfo = comS7.ReadArea(S7.S7AreaDB, 5,22,2, vannePLC);
+                        int plc=1,level,auto, manu, vanne;
 //int dataB=0;
                         if (retInfo ==0) {
                             plc = S7.GetWordAt(datasPLC, 0);
@@ -139,6 +174,21 @@ public class ReadLiquidS7 {
                         if (levelInfo==0){
                             level = S7.GetWordAt(levelPLC, 0);
                            updateLevelValue(level);
+                        }
+
+                        if(manuInfo==0){
+                            manu = S7.GetWordAt(manuPLC,0);
+                            updateManu(manu);
+                        }
+
+                        if(autoInfo==0){
+                            auto = S7.GetWordAt(autoPLC,0);
+                            updateAuto(auto);
+                        }
+
+                        if(vanneInfo==0){
+                            vanne = S7.GetWordAt(vannePLC,0);
+                            updateVanne(vanne);
                         }
 
                         Log.i("Variable A.P.I. -> ", String.valueOf(plc));
@@ -179,6 +229,27 @@ public class ReadLiquidS7 {
             levelValue.what = READ_LIQUID_LEVEL;
             levelValue.arg1 = i;
             monHandler.sendMessage(levelValue);
+        }
+
+        private void updateAuto(int i){
+            Message autoValue = new Message();
+            autoValue.what = READ_AUTO;
+            autoValue.arg1 = i;
+            monHandler.sendMessage(autoValue);
+        }
+
+        private void updateManu(int i){
+            Message manuValue = new Message();
+            manuValue.what = READ_MANU;
+            manuValue.arg1 = i;
+            monHandler.sendMessage(manuValue);
+        }
+
+        private void updateVanne(int i ){
+            Message vanneValue = new Message();
+            vanneValue.what = READ_VANNE;
+            vanneValue.arg1 = i;
+            monHandler.sendMessage(vanneValue);
         }
 
     }

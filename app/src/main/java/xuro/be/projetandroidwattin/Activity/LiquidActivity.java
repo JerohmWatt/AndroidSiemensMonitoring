@@ -29,14 +29,12 @@ import xuro.be.projetandroidwattin.R;
 
 public class LiquidActivity extends Activity {
 
-    private Button btn_connect;
     private TextView tv_plc;
-    private TextView tv_liquid;
+    private TextView tv_liquid, tv_liquid_auto, tv_liquid_manu, tv_liquid_vanne;
     private ReadLiquidS7 readS7;
     private NetworkInfo network;
     private ConnectivityManager connexStatus;
     private EditText et_value;
-    private EditText et_dbb;
     private Button bt_pushdata;
     private WritePillsS7 writeS7;
 
@@ -50,14 +48,15 @@ public class LiquidActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liquid);
 
-        btn_connect = (Button) findViewById(R.id.bt_readdatas_ConnexS7);
         tv_plc = (TextView) findViewById(R.id.tv_readdatas_plc);
-        et_dbb = findViewById(R.id.et_readdatas_dbb);
         et_value = findViewById(R.id.et_readdatas_value);
         bt_pushdata = findViewById(R.id.bt_readdatas_pushdata);
         tv_liquid = (TextView) findViewById(R.id.tv_liquid_level);
+        tv_liquid_auto = findViewById(R.id.tv_liquid_auto);
+        tv_liquid_manu = findViewById(R.id.tv_liquid_manu);
+        tv_liquid_vanne = findViewById(R.id.tv_liquid_vanne);
 
-        et_dbb.setText("5");
+
 
         session = new SessionManagement(getApplicationContext());
 
@@ -80,7 +79,7 @@ public class LiquidActivity extends Activity {
                     if (btn_connect.getText().equals("Connexion")){
                         Toast.makeText(this,network.getTypeName(),Toast.LENGTH_SHORT).show();
                         btn_connect.setText("Déconnexion");
-                        readS7 = new ReadLiquidS7(v, btn_connect, tv_plc, tv_liquid);
+                        readS7 = new ReadLiquidS7(v, btn_connect, tv_plc, tv_liquid, tv_liquid_auto, tv_liquid_manu, tv_liquid_vanne);
                         //writeS7 = new WritePillsS7(et_dbb);
                         readS7.Start(ip,rack,slot);
                         //writeS7.Start(ip,rack,slot);
@@ -99,26 +98,6 @@ public class LiquidActivity extends Activity {
                 }
                 break;
 
-            case R.id.bt_readdatas_pushdata:
-
-                if(session.getUserEmail() == "2") {
-                    if (et_dbb.getText().toString().isEmpty() || et_value.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "Un des champs n'est pas rempli", Toast.LENGTH_SHORT).show();
-                    } else {
-                        if (Integer.parseInt(et_dbb.getText().toString()) >= 0 && Integer.parseInt(et_dbb.getText().toString()) <= 15) {
-                            writeS7.setDbb(Integer.parseInt(et_dbb.getText().toString()));
-                            writeS7.setWriteBool(et_value.getText().toString());
-                        } else {
-                            writeS7.setDbb(Integer.parseInt(et_dbb.getText().toString()));
-                            writeS7.setWriteInt(et_value.getText().toString());
-                        }
-                    }
-                }
-                else{
-                    Toast.makeText(this, "Vous n'avez pas les droits pour écrire des données", Toast.LENGTH_SHORT).show();
-                }
-
-                break;
 
         }
     }

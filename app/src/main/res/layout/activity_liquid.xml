@@ -43,34 +43,38 @@
         android:text="Niveau de liquide : ??"
         android:textSize="20dp" />
 
-
     <TextView
-        android:id="@+id/tv_readdatas_writedatas"
+        android:id="@+id/tv_liquid_auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="20dp"
-        android:text="Ecriture de données"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:baselineAligned="false"
+        android:text="Consigne Auto : ??"
+        android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/et_readdatas_value"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_liquid_manu"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:inputType="number"
-        android:hint="Valeur à envoyer"
-        />
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="Consigne Manuelle : ??"
+        android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/et_readdatas_dbb"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/tv_liquid_vanne"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:inputType="number"
-        android:hint="DBB"
-        />
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="Pilotage vanne : ??"
+        android:textSize="20dp" />
+
+
 
     <Button
         android:id="@+id/bt_readdatas_ConnexS7"
@@ -80,13 +84,6 @@
         android:onClick="onReadDatasClickManager"
         android:text="Connexion" />
 
-    <Button
-        android:id="@+id/bt_readdatas_pushdata"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onReadDatasClickManager"
-        android:text="Pushdata" />
 
 
 </LinearLayout>
