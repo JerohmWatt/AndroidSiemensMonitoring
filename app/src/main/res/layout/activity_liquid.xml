@@ -1,9 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.LiquidActivity">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/lightBlue">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/iv_readdatas_status"
+        android:layout_width="48dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_adb_black_24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="Lecture de l'asservissement"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_readdatas_plc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="PLC : ???"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_liquid_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:baselineAligned="false"
+        android:text="Niveau de liquide : ??"
+        android:textSize="20dp" />
+
+
+    <TextView
+        android:id="@+id/tv_readdatas_writedatas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="20dp"
+        android:text="Ecriture de données"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_readdatas_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:inputType="number"
+        android:hint="Valeur à envoyer"
+        />
+
+    <EditText
+        android:id="@+id/et_readdatas_dbb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:inputType="number"
+        android:hint="DBB"
+        />
+
+    <Button
+        android:id="@+id/bt_readdatas_ConnexS7"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onReadDatasClickManager"
+        android:text="Connexion" />
+
+    <Button
+        android:id="@+id/bt_readdatas_pushdata"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onReadDatasClickManager"
+        android:text="Pushdata" />
+
+
+</LinearLayout>
